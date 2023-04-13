@@ -19,17 +19,19 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import QuanLyKhachSan.hoadon;
-import ct.sach;
 
 public class hoadon_GUI extends JFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel pnBorder, top, center, bottom;
 	private JLabel lbmahoadon, lbtenkhachhang, lbdiachikhachhang, lbngaythanhtoan, lbtrigia;
 	private JTextField txtmahoadon, txttenkhachhang, txtdiachikhachhang, txtngaythanhtoan, txttrigia;
 	private JButton btnthem, btnxoatrang, btnxoa, btnsua;
 	DefaultTableModel model;
 	private JTable table;
-	private ArrayList<hoadon> ls;
 	private dsHoaDon ds = new dsHoaDon();
 	public hoadon_GUI() {
 		setTitle("Hóa Đơn");
@@ -110,12 +112,26 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getSource().equals(btnthem))
 		{
-			try {
-				them();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			if(txtmahoadon.getText().equals("") || txtngaythanhtoan.getText().equals("") || txtdiachikhachhang.getText().equals("") ||
+					txttenkhachhang.getText().equals("") || txttrigia.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Bạn phải nhập đầy đủ thông tin!");
+			}else {
+					them();
+
+				}
+		}
+		if(e.getSource().equals(btnxoa)) {
+			delete();
+		}
+		if(e.getSource().equals(btnxoatrang)) {
+			txtdiachikhachhang.setText("");
+			txtmahoadon.setText("");
+			txtngaythanhtoan.setText("");
+			txttenkhachhang.setText("");
+			txttrigia.setText("");
+		}
+		if(e.getSource().equals(btnsua)) {
+
 		}
 	}
 	
@@ -134,7 +150,7 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		center.add(sp);
 	}
 	
-	public void them() throws Exception{
+	public void them(){
 		String mahd = txtmahoadon.getText();
 		String tenkh = txttenkhachhang.getText();
 		String diachiKH = txtdiachikhachhang.getText();
@@ -145,10 +161,22 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		if(ds.them(hd)) {
 			JOptionPane.showMessageDialog(this, "Thêm thành công!");
 			String [] row = {mahd, tenkh, diachiKH, ngaythanhtoan, trigia};
-			model.addColumn(row);
+			model.addRow(row);
 		}else {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
 			txtmahoadon.requestFocus();
+		}
+	}
+	public void delete() {
+		int r = table.getSelectedRow();
+		if(r != -1) {
+			int tb = JOptionPane.showConfirmDialog(this, "Bạn chắc chắn muốn xóa không?", "Delete", JOptionPane.YES_NO_OPTION);
+			if(tb == JOptionPane.YES_OPTION) {
+				ds.xoavitri(r);
+				model.removeRow(r);
+			}
+		}else {
+			JOptionPane.showMessageDialog(null, "Bạn chưa chọn dòng muốn xóa");
 		}
 	}
 	
@@ -156,16 +184,46 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		new hoadon_GUI().setVisible(true);
 	}
 	public class dsHoaDon implements Serializable{
-		public void dsHoaDon () {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 8574225001915849257L;
+		private ArrayList<hoadon> ls;
+		public dsHoaDon () {
 			ls = new ArrayList<>();
 		}
 		
+		//them hoa don
 		public boolean them(hoadon hd) {
 			for(int i = 0; i < ls.size(); i++)
-				if(ls.get(i).getMahoadon().equalsIgnoreCase(hd.getMahoadon()))
-					return false;
+				if(ls.get(i).getMahoadon().equalsIgnoreCase(hd.getMahoadon())) {
+					return false;}
+			ls.add(hd);
 			return true;
 		}
+		//xoavitri
+		public boolean xoavitri(int index) {
+			if(index >= 0 && index <= ls.size()-1) {
+				ls.remove(index);
+				return true;
+			}
+			return false;	
+		}
+		//suathongtin
+		 public boolean suaHD(String maHD, String tenKH, String diachiKH, String ngaythanhtoan, double trigia) throws Exception{
+		        hoadon hd = new hoadon(maHD, tenKH, diachiKH, ngaythanhtoan, trigia);
+		        if(ls.contains(hd)){
+		            hd.setDiachikhachhang(diachiKH);
+		            hd.setMahoadon(maHD);
+		            hd.setNgaythanhtoan(ngaythanhtoan);
+		            hd.setTenkhachhang(tenKH);
+		            hd.setTrigia(trigia);
+		            return true;
+		        }
+		        else
+		            return false;
+		    }
+		
 	}
 	
 }

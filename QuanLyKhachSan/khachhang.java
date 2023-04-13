@@ -5,12 +5,10 @@ public class khachhang {
 	private String tenKH;
 	private String soCanCuoc;
 	private String sdt;
-	private String gioitinh;
 	private String diachikhachhang;
 	
-	public khachhang(String maKH, String tenKH, String soCanCuoc, String sdt, String gioitinh, String diachikhachhang) {
+	public khachhang(String maKH, String tenKH, String soCanCuoc, String sdt, String diachikhachhang) {
 		super();
-		setGioitinh(gioitinh);
 		setMaKH(maKH);
 		setSoCanCuoc(soCanCuoc);
 		setSdt(sdt);
@@ -47,14 +45,6 @@ public class khachhang {
 		this.sdt = "SDT Khong duoc rong!";
 	}
 
-	public String getGioitinh() {
-		return gioitinh;
-	}
-
-	public void setGioitinh(String gioitinh) {
-		this.gioitinh = gioitinh;
-	}
-
 	public String getSoCanCuoc() {
 		return soCanCuoc;
 	}
@@ -78,7 +68,7 @@ public class khachhang {
 	@Override
 	public String toString() {
 		return "khachhang [maKH=" + maKH + ", tenKH=" + tenKH + ", soCanCuoc=" + soCanCuoc + ", sdt=" + sdt
-				+ ", gioitinh=" + gioitinh + ", diachikhachhang=" + diachikhachhang + "]";
+				+ ", diachikhachhang=" + diachikhachhang + "]";
 	}
 	
 	

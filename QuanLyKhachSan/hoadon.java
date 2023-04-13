@@ -15,7 +15,12 @@ public class hoadon {
 		setMahoadon(mahoadon);
 		setNgaythanhtoan(ngaytrigia);
 		setTenkhachhang(tenkhachhang);
-		setTrigia(trigia);
+		try {
+			setTrigia(trigia);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getMahoadon() {
@@ -60,7 +65,7 @@ public class hoadon {
 		return trigia;
 	}
 
-	public void setTrigia(double trigia) {
+	public void setTrigia(double trigia) throws Exception{
 		if(trigia > 0)
 			this.trigia = trigia;
 		this.trigia = 999;
