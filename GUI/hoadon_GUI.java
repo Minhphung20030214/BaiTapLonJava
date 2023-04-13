@@ -31,7 +31,7 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 	private JTextField txtmahoadon, txttenkhachhang, txtdiachikhachhang, txtngaythanhtoan, txttrigia;
 	private JButton btnthem, btnxoatrang, btnxoa, btnsua;
 	DefaultTableModel model;
-	private JTable table;
+	JTable table;
 	private dsHoaDon ds = new dsHoaDon();
 	public hoadon_GUI() {
 		setTitle("Hóa Đơn");
@@ -117,7 +117,7 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Bạn phải nhập đầy đủ thông tin!");
 			}else {
 					them();
-
+					txtmahoadon.requestFocus();
 				}
 		}
 		if(e.getSource().equals(btnxoa)) {
@@ -158,11 +158,12 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		String trigia = txttrigia.getText();
 		
 		hoadon hd = new hoadon(mahd, tenkh, diachiKH, ngaythanhtoan, Double.parseDouble(trigia));
-		if(ds.them(hd)) {
-			JOptionPane.showMessageDialog(this, "Thêm thành công!");
+		if(ds.them(hd)) {			
 			String [] row = {mahd, tenkh, diachiKH, ngaythanhtoan, trigia};
 			model.addRow(row);
-		}else {
+			JOptionPane.showMessageDialog(this, "Thêm thành công!");
+		}
+		else {
 			JOptionPane.showMessageDialog(this, "Thêm thất bại");
 			txtmahoadon.requestFocus();
 		}
@@ -195,8 +196,8 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 		
 		//them hoa don
 		public boolean them(hoadon hd) {
-			for(int i = 0; i < ls.size(); i++)
-				if(ls.get(i).getMahoadon().equalsIgnoreCase(hd.getMahoadon())) {
+			for(int i = 0; i < ls.size(); i++) {
+				if(ls.get(i).getMahoadon().equalsIgnoreCase(hd.getMahoadon())) 
 					return false;}
 			ls.add(hd);
 			return true;

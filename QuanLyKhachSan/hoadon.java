@@ -1,7 +1,5 @@
 package QuanLyKhachSan;
 
-import java.sql.Date;
-
 public class hoadon {
 	private String mahoadon;
 	private String tenkhachhang;
@@ -10,7 +8,6 @@ public class hoadon {
 	private double trigia;
 	
 	public hoadon(String mahoadon, String tenkhachhang, String diachikhachhang, String ngaytrigia, double trigia) {
-		super();
 		setDiachikhachhang(diachikhachhang);
 		setMahoadon(mahoadon);
 		setNgaythanhtoan(ngaytrigia);

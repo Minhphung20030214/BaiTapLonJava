@@ -11,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import GUI.khachhang_GUI;
+import GUI.DichVu_GUI;
+import GUI.NhanVien_Frm;
+import GUI.PhongForm;
 import GUI.hoadon_GUI;
 
 
@@ -78,13 +81,25 @@ public class menu_GUI extends JFrame implements ActionListener{
 				hdg.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		}
 		else if(e.getSource().equals(btnDV)) {
-			
+			DichVu_GUI dvg = new DichVu_GUI();
+			dvg.setVisible(true);
+			dvg.pack();
+			dvg.setLocationRelativeTo(null);
+			dvg.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		}
 		else if(e.getSource().equals(btnNV)) {
-			
+			NhanVien_Frm nvg = new NhanVien_Frm();
+			nvg.setVisible(true);
+			nvg.pack();
+			nvg.setLocationRelativeTo(null);
+			nvg.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		}
 		else if(e.getSource().equals(btnPH)) {
-			
+			PhongForm pg = new PhongForm();
+			pg.setVisible(true);
+			pg.setSize(700,550);
+			pg.setLocationRelativeTo(null);
+			pg.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		}
 	}
 	public static void main(String[] args) {
