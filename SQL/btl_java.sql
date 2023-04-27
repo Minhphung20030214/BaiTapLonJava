@@ -1,4 +1,7 @@
-﻿USE QLKS
+﻿create database QLKS
+
+USE QLKS
+
 
 -- Bang nhân viên
 	CREATE TABLE NhanVien
@@ -55,3 +58,19 @@ GO
 		 MaPhong VARCHAR(11) foreign key references Phong(MaPhong)
 	)
 GO
+
+select *from NhanVien
+
+insert into NhanVien(MaNV, TenNV, LuongNV, NgaySinh, GioiTinh, ChuThich) values
+(
+	N'A02', N'Phan Nguyen Dai Duong', 3500000, '2003-01-21', N'NAM', N'KC'
+),
+(
+	N'A03', N'Le Thanh Thanh', 2500000, '2003-03-06', N'NU', N'KC'
+),
+(
+	N'A04', N'Nguyen Hong Danh', 1500000, '2003-03-03', N'NU', N'KC'
+)
+,(
+	N'A05', N'Tran Minh Phung', 2500000, '2003-03-03', N'NAM', N'KC'
+)
