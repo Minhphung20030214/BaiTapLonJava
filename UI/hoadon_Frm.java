@@ -1,4 +1,4 @@
-package GUI;
+package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import QuanLyKhachSan.hoadon;
 
-public class hoadon_GUI extends JFrame implements ActionListener{
+public class hoadon_Frm extends JFrame implements ActionListener{
 	
 	/**
 	 * 
@@ -33,10 +33,10 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 	DefaultTableModel model;
 	JTable table;
 	private dsHoaDon ds = new dsHoaDon();
-	public hoadon_GUI() {
+	public hoadon_Frm() {
 		setTitle("Hóa Đơn");
 		setSize(700,500);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		gui();
 	}
@@ -182,7 +182,7 @@ public class hoadon_GUI extends JFrame implements ActionListener{
 	}
 	
 	public static void main(String[] args) {
-		new hoadon_GUI().setVisible(true);
+		new hoadon_Frm().setVisible(true);
 	}
 	public class dsHoaDon implements Serializable{
 		/**

@@ -1,4 +1,4 @@
-package GUI;
+package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -23,7 +23,7 @@ public class NhanVien_Frm extends JFrame implements ActionListener,MouseListener
 	public NhanVien_Frm() {
 		setTitle("NHÂN VIÊN");
 		setSize(900, 600);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		

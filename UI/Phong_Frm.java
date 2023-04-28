@@ -1,4 +1,4 @@
-package GUI;
+package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -21,11 +21,11 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import GUI.khachhang_GUI.dskhachhang;
 import QuanLyKhachSan.khachhang;
 import QuanLyKhachSan.phong;
+import UI.khachhang_Frm.dskhachhang;
 
-public class PhongForm extends JFrame implements ActionListener,MouseListener{
+public class Phong_Frm extends JFrame implements ActionListener,MouseListener{
 	JTextField txtMa, txtTen, txtLoai, txtTinhTrang, txtChuThich,txtTim;
 	JLabel lbMa, lbTen, lbLoai, lbTinhTrang, lbChuThich,lbTim;
 	JButton btThem, btXoa, btSua, btXoaTrang, btThoat, btTim;
@@ -34,12 +34,12 @@ public class PhongForm extends JFrame implements ActionListener,MouseListener{
 	JPanel pncenter;
 	JTable table;
 	private DefaultTableModel TableModel;
-	public PhongForm() {
+	public Phong_Frm() {
 		setTitle("PHÒNG");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		JPanel pnnorth = new JPanel();
 		pnnorth.setLayout(null);
@@ -216,7 +216,7 @@ public class PhongForm extends JFrame implements ActionListener,MouseListener{
 	
 	
 	public static void main(String[] args) {
-		new PhongForm().setVisible(true);
+		new Phong_Frm().setVisible(true);
 	}
 	public class dsPhong implements Serializable{
 		private static final long serialVersionUID = 1L;

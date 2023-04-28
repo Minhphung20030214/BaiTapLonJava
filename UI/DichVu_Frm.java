@@ -1,4 +1,4 @@
-package GUI;
+package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import QuanLyKhachSan.dichvu;
 
-public class DichVu_GUI extends JFrame implements ActionListener{
+public class DichVu_Frm extends JFrame implements ActionListener{
 	private JPanel pnBorder, top , center, bottom;
 	private JLabel lbmaDV, lbtenDV, lbgiaDV;
 	private JTextField txtmaDV, txttenDV, txtgiaDV;
@@ -31,10 +31,10 @@ public class DichVu_GUI extends JFrame implements ActionListener{
 	private dsDichVu ds = new dsDichVu();
 	
 	
-	public DichVu_GUI() {
+	public DichVu_Frm() {
 		setSize(700, 550);
 		setTitle("Dịch Vụ");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		gui();
 	}
@@ -111,7 +111,7 @@ public class DichVu_GUI extends JFrame implements ActionListener{
 	}
 	
 	public static void main(String[] args) {
-		new DichVu_GUI().setVisible(true);
+		new DichVu_Frm().setVisible(true);
 	}
 
 	@Override

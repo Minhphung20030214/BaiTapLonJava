@@ -1,4 +1,4 @@
-package GUI;
+package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import QuanLyKhachSan.hoadon;
 import QuanLyKhachSan.khachhang;
 
-public class khachhang_GUI extends JFrame implements ActionListener{
+public class khachhang_Frm extends JFrame implements ActionListener{
 	private JPanel pnBorder, top , center, bottom;
 	private JLabel lbmaKH, lbtenKH, lbsocancuoc, lbsdt, lbdiachiKH;
 	private JTextField txtmaKH, txttenKH, txtsocancuoc, txtsdt, txtdiachiKH;
@@ -33,10 +33,10 @@ public class khachhang_GUI extends JFrame implements ActionListener{
 	private ArrayList<khachhang> ls;
 	private dskhachhang ds = new dskhachhang();
 	
-	public khachhang_GUI() {
+	public khachhang_Frm() {
 		setSize(700,500);
 		setTitle("Khách Hàng");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		gui();
 	}
@@ -164,7 +164,7 @@ public class khachhang_GUI extends JFrame implements ActionListener{
 	}
 	
 	public static void main(String[] args) {
-		new khachhang_GUI().setVisible(true);
+		new khachhang_Frm().setVisible(true);
 	}
 	
 	public void them() throws Exception{

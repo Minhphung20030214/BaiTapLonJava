@@ -41,12 +41,12 @@ public class DangNhap extends JFrame implements ActionListener{
 		pnBorder.add(top);
 		pnBorder.add(center);
 		
-		center.setBackground(Color.CYAN);
-		west.setBackground(Color.cyan);
-		top.setBackground(Color.cyan);
+		center.setBackground(new Color(0, 206, 209));
+		west.setBackground(new Color(0, 206, 209));
+		top.setBackground(new Color(0, 206, 209));
 		
 		JLabel lbtitle = new JLabel("DANG NHAP");
-		lbtitle.setForeground(Color.BLUE);
+		lbtitle.setForeground(Color.white);
 		Font ft = new Font("Arial", Font.BOLD, 25);
 		lbtitle.setFont(ft);
 		top.add(lbtitle);
@@ -102,8 +102,8 @@ public class DangNhap extends JFrame implements ActionListener{
 	            JOptionPane.showMessageDialog(this, "Vui lòng đăng nhập tài khoản");
 	        } else if(txtpassword.getText().equals("")){
 	            JOptionPane.showMessageDialog(this, "Vui lòng đăng nhập mật khẩu");
-	        } else if(txtuser.getText().equals("BTL")){
-	                if(txtpassword.getText().equals("BTL")){
+	        } else if(txtuser.getText().equals("admin")){
+	                if(txtpassword.getText().equals("123")){
 	                        JOptionPane.showMessageDialog(this, "đăng nhập thành công");
 	                        menu_GUI mng =new menu_GUI();
 	                        mng.setVisible(true);
