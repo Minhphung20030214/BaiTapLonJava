@@ -7,15 +7,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import UI.DichVu_Frm;
@@ -26,7 +22,11 @@ import UI.khachhang_Frm;
 
 
 public class menu_GUI extends JFrame implements ActionListener{
-	private JPanel pnBorder, top, center, west;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel top, center, nav;
 	private JButton btnKH, btnHD, btnNV, btnDV, btnPH, btntang, btnDX, btnloaiphong;
 	private JLabel lbKH, lbHD, lbNV, lbDV, lbPH, lbtang, lbDX, lbloaiphong;
 	public menu_GUI() {
@@ -156,6 +156,41 @@ public class menu_GUI extends JFrame implements ActionListener{
 		center.setBorder(tlSouth);
 		
 		add(center, BorderLayout.WEST);
+		
+		nav = new JPanel();
+		JPanel nav_all = new JPanel();
+		JPanel nav_trong = new JPanel();
+		JPanel nav_daconguoi = new JPanel();
+		JPanel nav_dangdondep = new JPanel();
+		JLabel lball = new JLabel();
+		JLabel lbtrong = new JLabel();
+		JLabel lbdangdondep = new JLabel();
+		JLabel lbdaconguoi = new JLabel();
+		
+		
+		nav_all.setBackground(Color.pink);
+		nav_trong.setBackground(Color.green);
+		nav_daconguoi.setBackground(Color.red);
+		nav_dangdondep.setBackground(Color.cyan);
+		
+		TitledBorder bdnav = new TitledBorder("Tình trạng phòng"); 
+		nav.setBorder(bdnav);
+		
+		nav_all.setPreferredSize(new Dimension(30, 30));
+		nav_trong.setPreferredSize(new Dimension(30, 30));
+		nav_daconguoi.setPreferredSize(new Dimension(30, 30));
+		nav_dangdondep.setPreferredSize(new Dimension(30, 30));
+		
+		nav.add(nav_all);
+		nav.add(lball = new JLabel("Tổng Phòng (100)"));
+		nav.add(nav_trong);
+		nav.add(lbtrong = new JLabel("Phòng Trống (13)"));
+		nav.add(nav_dangdondep);
+		nav.add(lbdangdondep = new JLabel("Phòng đang được dọn dẹp (9)"));
+		nav.add(nav_daconguoi);
+		nav.add(lbdaconguoi = new JLabel("Phòng đã có khách (78)"));
+		
+		add(nav, BorderLayout.CENTER);
 	}
 	
 	@Override

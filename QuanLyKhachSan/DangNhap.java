@@ -2,13 +2,11 @@ package QuanLyKhachSan;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +17,10 @@ import javax.swing.JTextField;
 
 public class DangNhap extends JFrame implements ActionListener{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel pnBorder, top, center, west;
 	private JLabel lbuser, lbpassword, lbiconsuer, lbiconpass;
 	private JTextField txtuser, txtpassword;

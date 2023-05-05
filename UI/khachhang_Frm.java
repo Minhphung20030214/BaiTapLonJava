@@ -47,9 +47,9 @@ public class khachhang_Frm extends JFrame implements ActionListener{
 		center = new JPanel();
 		bottom  = new JPanel();
 		//
-//		top.setBackground(Color.cyan);
-//		center.setBackground(Color.cyan);
-//		bottom.setBackground(Color.cyan);
+		top.setBackground(Color.LIGHT_GRAY);
+		center.setBackground(Color.LIGHT_GRAY);
+		bottom.setBackground(Color.LIGHT_GRAY);
 		//
 		Box a = Box.createVerticalBox();
 		Box a1, a2, a3, a4, a5;
@@ -163,9 +163,9 @@ public class khachhang_Frm extends JFrame implements ActionListener{
 		center.add(sp);
 	}
 	
-	public static void main(String[] args) {
-		new khachhang_Frm().setVisible(true);
-	}
+//	public static void main(String[] args) {
+//		new khachhang_Frm().setVisible(true);
+//	}
 	
 	public void them() throws Exception{
 		String makh = txtmaKH.getText();

@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,7 @@ public class NhanVien_Frm extends JFrame implements ActionListener,MouseListener
 		add(pnnorth,BorderLayout.NORTH);
 		pnnorth.setLayout(null);
 		pnnorth.setPreferredSize(new Dimension(0,160));
+		pnnorth.setBackground(Color.LIGHT_GRAY);
 		pnnorth.setBorder(BorderFactory.createTitledBorder("NHÂN VIÊN"));
 		
 		pnnorth.add(lbMa = new JLabel("MÃ NHÂN VIÊN:")); 
@@ -62,6 +64,7 @@ public class NhanVien_Frm extends JFrame implements ActionListener,MouseListener
 		txtNamSinh.setBounds(420, 120, 300, 20);
 		
 		JPanel pncenter = new JPanel();
+		pncenter.setBackground(Color.LIGHT_GRAY);
 		add(pncenter,BorderLayout.CENTER);
 		pncenter.add(btThem = new JButton("THÊM"));
 		pncenter.add(btXoa = new JButton("XÓA"));
@@ -81,6 +84,8 @@ public class NhanVien_Frm extends JFrame implements ActionListener,MouseListener
 		scroll.setBorder(BorderFactory.createTitledBorder(""));
 		table.setRowHeight(20);
 		scroll.setPreferredSize(new Dimension(0, 350));
+		table.setBackground(Color.LIGHT_GRAY);
+		scroll.setBackground(Color.LIGHT_GRAY);
 	}
 
 	@Override
@@ -117,8 +122,5 @@ public class NhanVien_Frm extends JFrame implements ActionListener,MouseListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-	}
-	public static void main(String[] args) {
-		new NhanVien_Frm().setVisible(true);
 	}
 }

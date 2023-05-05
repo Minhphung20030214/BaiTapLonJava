@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,6 +44,7 @@ public class Phong_Frm extends JFrame implements ActionListener,MouseListener{
 		
 		JPanel pnnorth = new JPanel();
 		pnnorth.setLayout(null);
+		pnnorth.setBackground(Color.LIGHT_GRAY);
 		pnnorth.setPreferredSize(new Dimension(0, 160));
 		pnnorth.setBorder(BorderFactory.createTitledBorder("THÔNG TIN PHÒNG"));
 		add(pnnorth,BorderLayout.NORTH);
@@ -72,6 +74,7 @@ public class Phong_Frm extends JFrame implements ActionListener,MouseListener{
 		
 		pncenter = new JPanel();
 		add(pncenter,BorderLayout.CENTER);
+		pncenter.setBackground(Color.LIGHT_GRAY);
 		pncenter.add(btThem = new JButton("THÊM"));
 		pncenter.add(btXoa = new JButton("XÓA"));
 		pncenter.add(btSua = new JButton("SỬA"));
@@ -159,17 +162,22 @@ public class Phong_Frm extends JFrame implements ActionListener,MouseListener{
 			delete();
 		}
 		else if(e.getSource().equals(btThem)) {
-			try {
-				them();
-				txtMa.setText("");
-				txtTen.setText("");
-				txtLoai.setText("");
-				txtTinhTrang.setText("");
-				txtChuThich.setText("");
-				
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(txtMa.getText().equals("") || txtTen.getText().equals("") || txtLoai.getText().equals("")) {
+				JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
+			}
+			else {
+				try {
+					them();
+					txtMa.setText("");
+					txtTen.setText("");
+					txtLoai.setText("");
+					txtTinhTrang.setText("");
+					txtChuThich.setText("");
+					
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		}
 		else if(e.getSource().equals(btTim)) {
@@ -215,9 +223,6 @@ public class Phong_Frm extends JFrame implements ActionListener,MouseListener{
 	}
 	
 	
-	public static void main(String[] args) {
-		new Phong_Frm().setVisible(true);
-	}
 	public class dsPhong implements Serializable{
 		private static final long serialVersionUID = 1L;
 		private ArrayList<phong> hs;

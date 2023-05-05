@@ -181,9 +181,6 @@ public class hoadon_Frm extends JFrame implements ActionListener{
 		}
 	}
 	
-	public static void main(String[] args) {
-		new hoadon_Frm().setVisible(true);
-	}
 	public class dsHoaDon implements Serializable{
 		/**
 		 * 

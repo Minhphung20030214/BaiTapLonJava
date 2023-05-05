@@ -53,6 +53,9 @@ public class DichVu_Frm extends JFrame implements ActionListener{
 		
 		pnBorder.add(top);
 		add(top, BorderLayout.NORTH);
+		top.setBackground(Color.LIGHT_GRAY);
+		center.setBackground(Color.LIGHT_GRAY);
+		bottom.setBackground(Color.LIGHT_GRAY);
 		//
 		Box a = Box.createVerticalBox();
 		Box a1, a2, a3;
@@ -73,7 +76,7 @@ public class DichVu_Frm extends JFrame implements ActionListener{
 		a3.add(txtgiaDV = new JTextField(30));
 		
 		lbmaDV.setPreferredSize(lbtenDV.getPreferredSize());
-		lbgiaDV.setPreferredSize(lbgiaDV.getPreferredSize());
+		lbgiaDV.setPreferredSize(lbtenDV.getPreferredSize());
 		
 		center.add(a);
 		taobang();
@@ -110,9 +113,6 @@ public class DichVu_Frm extends JFrame implements ActionListener{
 		center.add(sp);
 	}
 	
-	public static void main(String[] args) {
-		new DichVu_Frm().setVisible(true);
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
